@@ -1,50 +1,15 @@
-import * as React from 'react'
-import ReactDom from 'react-dom'
+// import * as React from 'react'
+// import ReactDom from 'react-dom'
 import App from './src/App.jsx'
+import MyReact from './react/index.js'
 
-
-
-// const element = <h1 title="foo">foo</h1>
-const container = document.querySelector('#root')
-
-ReactDom.render(App(), container)
-
+// console.log(App)
 
 // // const element = <h1 title="foo">foo</h1>
-// // const container = document.querySelector('#root')
-// // ReactDom.render(element, container)
-
-
-// // ===>
-
-
-// // a jsx ===> js object 
-// const element = {
-//   type: 'h1',
-//   props: {
-//     title: 'foo',
-//     children:  'foo'
-//   }
-// }
-
-// // root container 
 // const container = document.querySelector('#root')
-// // 2. call ReactDom.render ==> render react js object to dom
 
+// ReactDom.render(App(), container)
 
-// // create parent node
-// const node = document.createElement(element.type)
+const container = document.getElementById("root");
 
-// node["title"] = element.props.title;
-
-// // create children node
-
-// const txt = document.createTextNode("")
-// txt["nodeValue"] = element.props.children
-
-// // do append 
-
-// node.appendChild(txt)
-
-// container.appendChild(node)
-
+MyReact.render(App, container);

@@ -22,8 +22,15 @@ function createTextElement(text){
   }
 }
 
+function render(ele, container){
+  console.log(ele, container)
+  var p = document.createElement("p");
+  p.innerHTML = 'lllll'
+  container.appendChild(p)
+}
 const MyReact = {
-  createElement
+  createElement,
+  render
 }
 
 export default MyReact;
