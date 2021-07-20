@@ -1,3 +1,4 @@
+const TEXT_ELEMENT = 'TEXT_ELEMENT'
 function createElement(type, props, ...children){
   return {
     type,
@@ -14,20 +15,53 @@ function createElement(type, props, ...children){
 
 function createTextElement(text){
   return {
-    type: 'TEXT_ELEMENT',
+    type: TEXT_ELEMENT,
     props: {
-      nodeValues: text,
+      nodeValue: text,
       children: []
     }
   }
 }
 
+
 function render(ele, container){
+  if(!ele) return 
   console.log(ele, container)
-  var p = document.createElement("p");
-  p.innerHTML = 'lllll'
-  container.appendChild(p)
+  const type = ele.type;
+  let props = ele.props
+  // 组件类型
+  let element = type === TEXT_ELEMENT ? document.createTextNode('') : document.createElement(ele.type)
+
+  const isPropKey = key => key !== 'children'
+  Object.keys(props).filter(isPropKey).forEach(name => element[name] = props[name])
+  
+  props.children.forEach((child) => {
+    render(child, element)
+  })
+  container.appendChild(element)
 }
+/**
+ * ？dom 数量过大会导致 阻塞主线程 
+ * 需要切分任务
+ */
+let nextUnitOfWork = null
+
+function workLoop(deadline){
+  let shouldYield = false
+  while(!shouldYield && nextUnitOfWork){
+    nextUnitOfWork = performUnitOfWork(nextUnitOfWork)
+    shouldYield = deadline.timeRemaining() < 1;
+  }
+  window.requestIdleCallback(workLoop)
+}
+
+window.requestIdleCallback(workLoop)
+
+function performUnitOfWork(nextUnitOfWork){
+  // tod
+}
+
+
 const MyReact = {
   createElement,
   render

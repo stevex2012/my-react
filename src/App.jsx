@@ -15,9 +15,9 @@
 import MyReact from '../react/index.js'
 /** @jsx MyReact.createElement */
 const App = (
-  <div style="background: salmon">
-    <h1>Hello World</h1>
-    <h2 style="text-align:right">from Didact</h2>
+  <div style="background: salmon;height: 30px">
+    <h1>Hello World<span>13123</span></h1>
+    <h2 style="text-align:right">lllll</h2>
   </div>
 );
 
