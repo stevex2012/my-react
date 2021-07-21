@@ -126,3 +126,6 @@ function performUnitOfWork(fiber){
 }
 window.requestIdleCallback(workLoop)
 ```
+
+### workInProgress currentProgress alternate
+- todo
