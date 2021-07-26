@@ -1,4 +1,4 @@
-# my-react
+# my-react from https://pomb.us/build-your-own-react/
 learn react ^17
 
 ## vite api 启动
@@ -128,4 +128,7 @@ window.requestIdleCallback(workLoop)
 ```
 
 ### workInProgress currentProgress alternate
-- todo
+- 在performUnitOfWork时候，去appendiChild 更新dom，有性能问题，需要实现增量更新
+- 更新dom任务，应该分离出来
+
+

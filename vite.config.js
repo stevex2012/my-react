@@ -6,6 +6,7 @@ export default defineConfig({
     jsxFactory: 'h',
     jsxFragment: 'Fragment',
     // loader: { '.js': 'jsx' }
+    
   },
   // plugins: [reactRefresh()]
 })
